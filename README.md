@@ -124,10 +124,10 @@ To run tests, run the following command:
 - GitHub: [@githubhandle](https://github.com/stephenkati)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/stephen-katuli/)
 
-👤 **Sasan**
+👤 **Sasan Moshirabadi**
 
-- GitHub: [@githubhandle](https://github.com/)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/)
+- GitHub: [@dev89s](https://github.com/dev89s)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/sasan-moshirabadi)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
