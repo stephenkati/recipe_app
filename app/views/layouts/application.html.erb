@@ -11,8 +11,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="bg-white min-w-screen min-h-screen p-0 m-0">
+    <main class=" mx-auto px-5 flex flex-col gap-2 items-center text-neutral">
+      <% if notice.present? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+
       <%= yield %>
     </main>
   </body>

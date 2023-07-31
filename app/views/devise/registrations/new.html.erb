@@ -1,0 +1,36 @@
+<div class="p-2 rounded-lg bg-neutral text-white flex flex-col gap-2 items-center mt-2">
+  <h2 class="font-bold text-2xl">Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "flex flex-col gap-1 items-center " }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "rounded-lg" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded-lg"  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "rounded-lg"  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded-lg"  %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "px-4 py-2 bg-primary rounded-lg mt-4 text-xl hover:bg-primary-focus" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
