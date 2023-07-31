@@ -1,0 +1,6 @@
+<% if user_signed_in? %> 
+ <div class="font-bold"> Welcome <%= current_user.name %> </div>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "px-4 py-2 bg-secondary text-neutral rounded-lg m-2" %> 
+<% else %>
+  <%= button_to "Sign in", new_user_session_path, class: "px-4 py-2 bg-secondary text-neutral rounded-lg m-2" %> 
+<% end %>
