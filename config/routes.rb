@@ -5,4 +5,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root "users#index"
+  resources :recipes, only: [:index, :show, :new, :create, :destroy] do
+    member do
+      patch :toggle_public
+    end
+
+    resources :recipe_foods, only: [:new, :create, :edit, :update,  :destroy]
+  end
+
+  resources :general_shopping_lists, only: [:index]
+  
 end
