@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -11,7 +9,8 @@ class Ability
     # can :read, Food, public: true
 
     return unless user.present?
-    can :manage, Food, user: user
+
+    can :manage, Food, user:
 
     # return unless user.admin?
     # can :manage, :all
