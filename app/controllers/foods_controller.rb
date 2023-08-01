@@ -4,7 +4,10 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all
+    @foods = Food.accessible_by(current_ability)
+    if @foods.empty?
+      @warning = "The food list is empty."
+    end
   end
 
   # GET /foods/1 or /foods/1.json
