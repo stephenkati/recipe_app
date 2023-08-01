@@ -1,0 +1,43 @@
+<div class="w-full">
+
+  <div class="flex justify-between text-center w-4/5 m-auto">
+    <h1 class="font-bold text-4xl">Foods</h1>
+    <%= link_to 'New food', new_food_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-primary-focus" %>
+  </div>
+
+  <% if !user_signed_in?%>
+    <div class="min-w-screen text-center pt-7 text-xl font-bold">
+      <h2 class="warning">Please sign in</h2>
+    </div>
+  <% end %>
+
+
+  <% if @foods.any? %>
+    <div id="foods" class="min-w-full text-center">
+      <table class="w-2/3 m-auto border-2 mt-10 ">
+        <tr class="border-b-2">
+          <th class="py-3">Food</th>
+          <th>Measurement Unit</th>
+          <th>Unit Price</th>
+          <th>Actions</th>
+        </tr>
+        <% @foods.each_with_index do |food, index| %>
+          <% if index % 2 == 0%>
+            <tr class="bg-gray-200">
+          <% else%>
+            <tr>
+          <% end %>
+            <td class="py-3"><%= link_to food.name, food, class: "py-3 px-2" %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= "$#{food.price}" %></td>
+            <td><%= button_to 'Delete', food_path(food), method: :delete, class: "underline" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% else %>
+    <div class="w-2/3 m-auto mt-10 text-xl font-medium"> <%= @warning %> </div>
+  <% end %>
+
+
+</div>
