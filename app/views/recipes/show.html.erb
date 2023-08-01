@@ -26,7 +26,7 @@
   <div class="w-full flex flex-col items-center">
 
     <div class="w-full flex justify-between p-4 flex-wrap">
-      <%= link_to 'Generate Shopping List', general_shopping_lists_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-primary-focus"%>
+      <%= link_to 'Generate Shopping List', shopping_list_recipe_path(@recipe), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-primary-focus"%>
       <%= link_to 'Add Ingedrient', new_recipe_recipe_food_path(@recipe), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-primary-focus"%>
     </div>
 

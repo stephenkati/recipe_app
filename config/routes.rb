@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     member do
       patch :toggle_public
+      get :shopping_list
     end
 
     resources :recipe_foods, only: [:new, :create, :edit, :update,  :destroy]

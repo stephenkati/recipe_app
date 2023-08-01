@@ -46,7 +46,29 @@ class RecipesController < ApplicationController
     redirect_to @recipe
   end
 
+  def shopping_list
+    @recipe = Recipe.find(params[:id])
+    @shopping_list = generate_shopping_list_for_recipe(@recipe)
+    @total_food_items = @shopping_list.sum { |item| item[:quantity] }
+    @total_price = @shopping_list.sum { |item| item[:price] * item[:quantity] }
+  end
+
   private
+
+  def generate_shopping_list_for_recipe(recipe)
+    ingredients = recipe.foods.select(:id, :name, :measurement_unit, :price).distinct
+    shopping_list = []
+
+    ingredients.each do |ingredient|
+      total_quantity = recipe.recipe_foods.where(food: ingredient).sum(:quantity)
+      shopping_list << { ingredient_name: ingredient.name,
+                         quantity: total_quantity,
+                         measurement_unit: ingredient.measurement_unit,
+                         price: ingredient.price }
+    end
+
+    shopping_list
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description)
