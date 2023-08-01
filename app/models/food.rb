@@ -2,8 +2,8 @@ class Food < ApplicationRecord
   belongs_to :user
 
   # Validations
-  validate :name, presence: true, length: { max: 250 }
-  validate :measurement_unit, presence: true
-  validate :price, presence: true
-  validate :quantity, presence: true
+  validates :name, presence: true, length: { max: 250 }
+  validates :measurement_unit, presence: true
+  validates :price, presence: true
+  validates :quantity, presence: true
 end
