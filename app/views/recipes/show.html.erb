@@ -5,7 +5,9 @@
 
     <div class="w-5/6">
       <p> <span class="font-bold text-xl"> Preparation Time: </span> <%= @recipe.preparation_time %> minutes </p>
+
       <p> <span class="font-bold text-xl"> Cooking Time: </span> <%= @recipe.cooking_time %> minutes </p>
+      
       <p class="m-2"> <span class="font-bold text-xl"> Steps: </span> <br/>  <%= @recipe.description %> </p>
     </div>
 
@@ -21,36 +23,46 @@
 
   </div>
 
-  <div>
-    <div>
-      <%= link_to 'Generate Shopping List', general_shopping_lists_path %>
-      <%= link_to 'Add Ingedrient', new_recipe_recipe_food_path(@recipe) %>
+  <div class="w-full flex flex-col items-center">
+
+    <div class="w-full flex justify-between p-4 flex-wrap">
+      <%= link_to 'Generate Shopping List', general_shopping_lists_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-primary-focus"%>
+      <%= link_to 'Add Ingedrient', new_recipe_recipe_food_path(@recipe), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-primary-focus"%>
     </div>
 
-    <table>
-      <thead>
-        <tr>
+    <table class="w-full flex flex-col items-center">
+
+      <thead class="w-full max-w-lg bg-neutral text-white p-2">
+        <tr class="flex gap-2 p-2 w-full justify-between">
           <th> Food </th>
           <th> Quantity </th>
           <th> Value </th>
           <th> Actions </th>
         </tr>
       </thead>
-      <tbody>
+
+      <tbody class="w-full max-w-lg p-2">
+
         <% @recipe_foods.each do |recipe_food| %>
-          <tr>
+          <tr class="flex gap-2 p-2 w-full justify-between text-lg bg-slate-100 my-2">
+
             <td> <%= recipe_food.food.name %> </td>
             <td> <%= recipe_food.quantity %> </td>
             <td> <%= recipe_food.quantity * recipe_food.food.price %> </td>
+
             <td>
-              <div>
-                <%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food) %>
-                <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete %>
+              <div class="flex flex-col gap-1">
+                <%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food), class:"bg-green-500 hover:bg-green-600 text-neutral rounded-lg px-4 py-2" %>
+
+                <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class:"bg-rose-500 hover:bg-rose-800 text-neutral rounded-lg px-4 py-2" %>
               </div>
             </td>
+
           </tr>
         <%end%>
+
       </tbody>
+
     </table>
   </div>
 </div>
