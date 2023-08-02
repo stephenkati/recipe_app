@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new destroy toggle_public]
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.accessible_by(current_ability)
   end
 
   def public_recipes
