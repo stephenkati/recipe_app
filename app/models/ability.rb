@@ -10,7 +10,8 @@ class Ability
 
     return unless user.present?
 
-    can :manage, Food, user:
+    can(:manage, Food, user:)
+    can(:manage, Recipe, user:)
 
     # return unless user.admin?
     # can :manage, :all

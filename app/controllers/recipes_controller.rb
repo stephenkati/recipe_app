@@ -1,8 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
-
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.accessible_by(current_ability)
   end
 
   def public_recipes
