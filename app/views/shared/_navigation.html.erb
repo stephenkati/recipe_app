@@ -1,0 +1,28 @@
+<nav class="bg-neutral p-4 flex flex-wrap text-white w-full font-bold">
+  <div class="flex justify-end invisible">
+    <% if user_signed_in? %>
+      <div class="flex items-center">
+        <div class="font-bold text-white mr-3"> Welcome <%= current_user.name %> </div>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "px-4 py-2 bg-secondary text-neutral rounded-lg mx-2" %>
+      </div>
+    <% else %>
+      <%= button_to "Sign in", new_user_session_path, class: "px-4 py-2 bg-secondary text-neutral rounded-lg mx-2 invisible" %>
+    <% end %>
+  </div>
+  <ul class="flex gap-7 m-auto justify-center">
+    <%= link_to "Foods", foods_path, class:"hover:text-sky-400" %>
+    <%= link_to "Recipes", recipes_path, class:"hover:text-sky-400" %>
+    <%= link_to "Public Recipes", public_recipes_path, class:"hover:text-sky-400" %>
+    <%= link_to "General shopping list", general_shopping_lists_path, class:"hover:text-sky-400" %>
+  </ul>
+  <div class="flex justify-end">
+    <% if user_signed_in? %>
+      <div class="flex items-center">
+        <div class="font-bold text-white mx-3"> Welcome <%= current_user.name %> </div>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "px-4 py-2 bg-secondary text-neutral rounded-lg mx-2" %>
+      </div>
+    <% else %>
+      <%= button_to "Sign in", new_user_session_path, class: "px-4 py-2 bg-secondary text-neutral rounded-lg mx-2" %>
+    <% end %>
+  </div>
+</nav>

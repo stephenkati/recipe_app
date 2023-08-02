@@ -1,0 +1,32 @@
+<div class="flex w-full flex-col gap-2 items-center">
+  <h1 class="font-bold text-4xl my-5">Shopping List for <span class="text-green-500"> <%= @recipe.name %> </span> </h1>
+
+  <div class="flex w-full max-w-lg justify-between flex-wrap">
+    <p> <span class="font-bold text-xl"> Total Food Items: </span> <span class="text-green-500"><%= @total_food_items %> </span>  </p>
+    <p> <span class="font-bold text-xl"> Total Price: </span> <span class="text-green-500"> $<%= @total_price %> </span> </p>
+  </div>
+
+  <div class="min-w-full text-center">
+    <table class="w-2/3 m-auto border-2 mt-10 ">
+
+        <tr class="border-b-2 ">
+          <th class="py-3">Ingredient</th>
+          <th class="py-3">Quantity</th>
+          <th class="py-3">Price</th>
+        </tr>
+
+      <tbody class="w-full max-w-lg p-4">
+
+        <% @shopping_list.each do |item| %>
+          <tr class="odd:bg-gray-200 bg-white py-4">
+            <td class="py-3"><%= item[:ingredient_name] %></td>
+            <td class="py-3"><%= item[:quantity] %></td>
+            <td class="py-3">$<%= item[:price]  %> </td>
+          </tr>
+        <% end %>
+
+      </tbody>
+
+    </table>
+  </div>
+</div>
