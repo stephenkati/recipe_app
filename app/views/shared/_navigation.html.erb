@@ -11,9 +11,9 @@
   </div>
   <ul class="flex gap-7 m-auto justify-center">
     <%= link_to "Foods", foods_path, class:"hover:text-sky-400" %>
-    <%= link_to "Recipes", nil, class:"hover:text-sky-400" %>
+    <%= link_to "Recipes", recipes_path, class:"hover:text-sky-400" %>
     <%= link_to "Public Recipes", nil, class:"hover:text-sky-400" %>
-    <%= link_to "General shopping list", nil, class:"hover:text-sky-400" %>
+    <%= link_to "General shopping list", general_shopping_lists_path, class:"hover:text-sky-400" %>
   </ul>
   <div class="flex justify-end">
     <% if user_signed_in? %>
