@@ -78,3 +78,5 @@ gem 'cancancan'
 gem 'devise'
 gem 'letter_opener'
 gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+gem 'simplecov', require: false
