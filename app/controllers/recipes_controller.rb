@@ -56,14 +56,13 @@ class RecipesController < ApplicationController
   private
 
   def generate_shopping_list_for_recipe(recipe)
-    ingredients = recipe.foods.select(:id, :name, :measurement_unit, :price).distinct
+    ingredients = recipe.foods.select(:id, :name, :price).distinct
     shopping_list = []
 
     ingredients.each do |ingredient|
       total_quantity = recipe.recipe_foods.where(food: ingredient).sum(:quantity)
       shopping_list << { ingredient_name: ingredient.name,
                          quantity: total_quantity,
-                         measurement_unit: ingredient.measurement_unit,
                          price: ingredient.price }
     end
 

@@ -2,8 +2,8 @@
   <h1 class="font-bold text-4xl my-5">General Shopping List</h1>
 
   <div class="flex justify-between px-5 w-full max-w-lg">
-    <p> <span class="font-bold text-xl"> Total Food Items: </span> <%= @total_food_items %></p>
-    <p> <span class="font-bold text-xl"> Total Price: </span> $ <%= @total_price %></p>
+    <p> <span class="font-bold text-xl"> Total Food Items: </span> <span class="text-green-500"><%= @total_food_items %></span> </p>
+    <p> <span class="font-bold text-xl"> Total Price: </span> <span class="text-green-500">$<%= @total_price %></span></p>
   </div>
 
   <div class="min-w-full text-center">
@@ -21,7 +21,7 @@
           <tr class="odd:bg-gray-200 bg-white py-4">
             <td class="py-3"><%= item[:name] %></td>
             <td class="py-3"><%= item[:quantity] %></td>
-            <td class="py-3">$ <%= item[:price] * item[:quantity] %></td>
+            <td class="py-3">$<%= item[:price] * item[:quantity] %></td>
           </tr>
 
         <% end %>
