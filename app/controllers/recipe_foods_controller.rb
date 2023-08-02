@@ -1,4 +1,6 @@
 class RecipeFoodsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @recipe = Recipe.find_by(id: params[:recipe_id])
     @recipe_food = RecipeFood.new
@@ -32,7 +34,6 @@ class RecipeFoodsController < ApplicationController
   def update
     @recipe = Recipe.find_by(id: params[:recipe_id])
     @recipe_food = RecipeFood.includes(:recipe).find_by(id: params[:id])
-    puts @recipe
 
     if @recipe_food.update(recipe_food_params)
       flash[:notice] = 'Ingredient has been updated successfully'

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
 
   resources :general_shopping_lists, only: [:index]
   
+  get 'users', to: 'users#index'
 end
