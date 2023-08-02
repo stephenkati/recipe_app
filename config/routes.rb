@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   end
 
   resources :general_shopping_lists, only: [:index]
+  
+  get 'users', to: 'users#index'
 
   resources :public_recipes
 
