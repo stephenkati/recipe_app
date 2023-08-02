@@ -1,4 +1,5 @@
 class GeneralShoppingListsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @user = current_user
     @general_shopping_list = generate_general_shopping_list

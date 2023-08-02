@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @recipe = Recipe.find_by(id: params[:recipe_id])
     @recipe_food = RecipeFood.new
