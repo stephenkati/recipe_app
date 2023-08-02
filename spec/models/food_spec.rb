@@ -14,7 +14,7 @@ RSpec.describe Food, type: :model do
   end
   describe 'validations' do
     let(:user) { User.create(name: 'test', email: 'test@test.com', password: 'password') }
-    let(:food) { Food.create(name:'food', measurement_unit: 'unit', quantity: 10, price: 10, user_id: user.id) }
+    let(:food) { Food.create(name: 'food', measurement_unit: 'unit', quantity: 10, price: 10, user_id: user.id) }
     it 'should be valid with attributes' do
       expect(food).to be_valid
     end

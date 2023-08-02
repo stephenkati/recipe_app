@@ -4,12 +4,11 @@ RSpec.describe PublicRecipesController, type: :request do
   let(:user) { User.new(name: 'User1', email: 'user1@gmail.com', password: '123123') }
   let(:recipe) do
     Recipe.new(name: 'recipe_1',
-      preparation_time: 20,
-      cooking_time: 30,
-      description: 'interesting recipe',
-      public: false,
-      user_id: user.id
-    )
+               preparation_time: 20,
+               cooking_time: 30,
+               description: 'interesting recipe',
+               public: false,
+               user_id: user.id)
   end
 
   before do

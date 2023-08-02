@@ -40,13 +40,15 @@ RSpec.describe FoodsController, type: :request do
     end
     describe '#create' do
       it 'returns a success response' do
-        post foods_path, params: { food: { name: 'food', measurement_unit: 'units', price: 10, quantity: 10, user_id: user.id } }
+        post foods_path,
+             params: { food: { name: 'food', measurement_unit: 'units', price: 10, quantity: 10, user_id: user.id } }
         expect(response).to redirect_to(food_path(Food.last))
       end
     end
     describe '#update' do
       it 'returns a success response' do
-        put food_path(food), params: { food: { name: 'food', measurement_unit: 'units', price: 10, quantity: 10, user_id: user.id } }
+        put food_path(food),
+            params: { food: { name: 'food', measurement_unit: 'units', price: 10, quantity: 10, user_id: user.id } }
         expect(response).to redirect_to(food_path(food))
       end
     end
