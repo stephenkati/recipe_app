@@ -29,7 +29,9 @@
 
     <div class="w-full flex justify-between p-4 flex-wrap">
       <%= link_to 'Generate Shopping List', shopping_list_recipe_path(@recipe), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-primary-focus"%>
-      <%= link_to 'Add Ingedrient', new_recipe_recipe_food_path(@recipe), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-primary-focus"%>
+      <%if can? :edit, @recipe %>
+        <%= link_to 'Add Ingedrient', new_recipe_recipe_food_path(@recipe), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium hover:bg-primary-focus"%>
+      <% end %>
     </div>
 
     <div class="min-w-full text-center">
@@ -39,7 +41,9 @@
           <th class="py-3"> Food </th>
           <th class="py-3"> Quantity </th>
           <th class="py-3"> Value </th>
-          <th class="py-3"> Actions </th>
+          <%if can? :edit, @recipe %>
+            <th class="py-3"> Actions </th>
+          <% end %>
         </tr>
 
         <tbody class="w-full max-w-lg p-4">
@@ -53,9 +57,11 @@
 
               <td class="">
                 <div class="flex gap-1 justify-center">
+                <%if can? :edit, @recipe %>
                   <%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food), class:"bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 " %>
 
                   <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class:"bg-rose-500 hover:bg-rose-800 text-white rounded-lg px-4 py-2" %>
+                <% end %>
                 </div>
               </td>
 
